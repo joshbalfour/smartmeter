@@ -1,0 +1,20 @@
+{
+  "name": "@joshbalfour/smartmeter-graphql-schema",
+  "packageManager": "yarn@3.1.1",
+  "scripts": {
+    "start": "ts-node-dev src/index.ts",
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "ts-node-dev": "^1.1.8",
+    "typescript": "^4.5.5"
+  },
+  "main": "src/index.ts",
+  "dependencies": {
+    "@joshbalfour/glowmarkt-api": "workspace:^",
+    "class-validator": "^0.13.2",
+    "graphql": "^16.3.0",
+    "reflect-metadata": "^0.1.13",
+    "type-graphql": "^1.1.1"
+  }
+}
