@@ -1,4 +1,3 @@
-import { GraphQLSchema } from 'graphql'
-import * as api from '@joshbalfour/glowmarkt-api'
+import 'reflect-metadata'
 
-export const getSchema = (): GraphQLSchema => {}
+export * from './graphql-schema'

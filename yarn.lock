@@ -1803,7 +1803,7 @@ __metadata:
   dependencies:
     "@joshbalfour/glowmarkt-api": "workspace:^"
     class-validator: ^0.13.2
-    graphql: ^16.3.0
+    graphql: ^15.3.0
     reflect-metadata: ^0.1.13
     ts-node-dev: ^1.1.8
     type-graphql: ^1.1.1
@@ -1817,7 +1817,7 @@ __metadata:
   dependencies:
     "@joshbalfour/smartmeter-graphql-schema": "workspace:^"
     apollo-server: ^3.6.2
-    graphql: ^16.3.0
+    graphql: ^15.3.0
     ts-node-dev: ^1.1.8
     typescript: ^4.5.5
   languageName: unknown
@@ -4731,10 +4731,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"graphql@npm:^16.3.0":
-  version: 16.3.0
-  resolution: "graphql@npm:16.3.0"
-  checksum: ba540641e9cd2a8de5b989ff1433b015f232fa73aaef478d6709c1339cd43113347917acb965a5799c004667687852fc8ff0cfaa935eb26374c91c1fd7fdaeb1
+"graphql@npm:^15.3.0":
+  version: 15.8.0
+  resolution: "graphql@npm:15.8.0"
+  checksum: 423325271db8858428641b9aca01699283d1fe5b40ef6d4ac622569ecca927019fce8196208b91dd1d8eb8114f00263fe661d241d0eb40c10e5bfd650f86ec5e
   languageName: node
   linkType: hard
 

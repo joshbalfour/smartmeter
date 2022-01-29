@@ -1,12 +1,12 @@
 import { glowmarktRequest } from './glowmarkt-request'
 
-import { AuthResponse, ReadingQuery, Readings, Resource, ResourceDetails, VirtualEntity } from './types'
+import { AuthResponse, AuthResponseDetailed, ReadingQuery, Readings, Resource, ResourceDetails, VirtualEntity } from './types'
 
 export const client = (appId: string = 'b0f1b774-a586-4f72-9edd-27ead8aa7a8d', baseUrl: string = 'https://api.glowmarkt.com/api/v0-1/') => {
   const request = glowmarktRequest(appId, baseUrl)
 
-  const authenticate = (username: string, password: string): Promise<AuthResponse> => (
-    request.post<AuthResponse>({
+  const authenticate = (username: string, password: string): Promise<AuthResponseDetailed> => (
+    request.post<AuthResponseDetailed>({
       endpoint: 'auth',
       body: {
         username,
@@ -15,6 +15,12 @@ export const client = (appId: string = 'b0f1b774-a586-4f72-9edd-27ead8aa7a8d', b
     })
   )
 
+  const getCurrentAuthentication = (token: string): Promise<AuthResponse> => (
+    request.get<AuthResponse>({
+      endpoint: 'auth',
+      token,
+    })
+  )
 
   const getVirtualEntities = (token: string): Promise<VirtualEntity<Resource>[]> => (
     request.get<VirtualEntity<Resource>[]>({
@@ -48,6 +54,7 @@ export const client = (appId: string = 'b0f1b774-a586-4f72-9edd-27ead8aa7a8d', b
 
   return {
     authenticate,
+    getCurrentAuthentication,
     getVirtualEntities,
     getVirtualEntityWithResourceDetails,
     getCurrentReadings,

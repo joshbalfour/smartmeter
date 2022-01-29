@@ -7,6 +7,13 @@ export type HildebrandError = {
 
 
 export type AuthResponse = {
+  accountId: string
+  valid: boolean
+  exp: number
+  name: string
+}
+
+export type AuthResponseDetailed = {
   value: boolean
   name: string
   accountId: string
