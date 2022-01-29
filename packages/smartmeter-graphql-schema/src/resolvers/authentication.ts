@@ -19,6 +19,10 @@ export class AuthenticationResolver {
 
   @Query(() => Authentication)
   async getViewer(@Ctx() context: Context): Promise<Authentication> {
+    if (!context.token) {
+      throw new Error('No token found')
+    }
+
     const authResult = await client().getCurrentAuthentication(context.token)
 
     return {
