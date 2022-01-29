@@ -1,7 +1,16 @@
-# Smart Meter App
+# Smarty Energy - View your smart meter on your phone
 
-This will be an app that lets you view your energy smart meter data (current and historic) on an app.
-It will upsell the [Hildebrande smart meter](https://shop.glowmarkt.com/products/display-and-cad-combined-for-smart-meter-customers) to give you more up-to-date info (5 secondly rather than half hourly).
+<img src="images/logo.png" width="128" height="128">
+
+☝️ Smarty
+
+
+The goal is to:
+* Surface energy usage info (quantity and price) to users in an intuitive way
+* Have a smooth onboarding experience for associating your smart meter to your account
+* Upsell the [Hildebrande smart meter](https://shop.glowmarkt.com/products/display-and-cad-combined-for-smart-meter-customers) to give you more up-to-date readings (realtime rather than half-hourly)
+
+
 It will talk to the [the glowmarkt api](https://docs.glowmarkt.com/GlowmarktAPIDataRetrievalDocumentationIndividualUserForBright.pdf) directly so we don't handle any user data.
 
 ## Project Structure
@@ -22,7 +31,44 @@ Everything's in TypeScript, this is a yarn berry monorepo, stuff is located in [
 - [ ] Signup flow
 - [ ] Associate IHD with app flow
 - [ ] Hildebrande smart meter upsell flow
+- [ ] Branding/Name/Visual Identity
 
 ## Stretch goal/Maybes
-- [ ] Native widgets for android/iOS (would require ejection from expo 😭)
+- [ ] Native widgets for android/iOS (would require ejection from expo)
+
+
+## Visual Identity
+
+### Keywords
+- playful
+- round
+- friendly
+
+### Mascot
+Smarty
+
+<img src="images/logo.png" width="128" height="128">
+
+### Colour pallet
+Pink: <img src="images/ed839d.png" width="12" height="12"> [#ed839d](https://hexcolor.co/hex/ed839d)
+
+Light Blue: <img src="images/80c5f4.png" width="12" height="12"> [#80c5f4](https://hexcolor.co/hex/80c5f4)
+
+Dark Blue:  <img src="images/382d5e.png" width="12" height="12"> [#382d5e](https://hexcolor.co/hex/382d5e)
+
+White: <img src="images/efefef.png" width="12" height="12"> [#efefef](https://hexcolor.co/hex/efefef)
+
+### Typefaces
+Headings: [Dosis](https://fonts.google.com/specimen/Dosis)
+
+<img src="images/Dosis.png">
+
+Subheadings: [Ubuntu](https://fonts.google.com/specimen/Ubuntu)
+
+<img src="images/Ubuntu.png">
+
+
+Body: [Yantramanav](https://fonts.google.com/specimen/Yantramanav)
+
+<img src="images/Yantramanav.png">
 
