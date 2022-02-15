@@ -1,0 +1,90 @@
+diff --git a/dist/helpers/filesystem.native.js b/dist/helpers/filesystem.native.js
+new file mode 100644
+index 0000000000000000000000000000000000000000..08d888791c725cefe4ad4f7be47eebd5d791693d
+--- /dev/null
++++ b/dist/helpers/filesystem.native.js
+@@ -0,0 +1,23 @@
++"use strict";
++Object.defineProperty(exports, "__esModule", { value: true });
++exports.outputFileSync = exports.outputFile = exports.mkdirRecursiveSync = exports.mkdirRecursive = exports.parsePath = exports.fsWriteFile = exports.fsMkdir = void 0;
++exports.fsMkdir = () => Promise.resolve();
++exports.fsWriteFile = () => Promise.resolve();
++
++exports.parsePath = () => {};
++async function mkdirRecursive(filePath) {
++
++}
++exports.mkdirRecursive = mkdirRecursive;
++function mkdirRecursiveSync(filePath) {
++
++}
++exports.mkdirRecursiveSync = mkdirRecursiveSync;
++async function outputFile(filePath, fileContent) {
++
++}
++exports.outputFile = outputFile;
++function outputFileSync(filePath, fileContent) {
++
++}
++exports.outputFileSync = outputFileSync;
+diff --git a/dist/helpers/filesystem.web.js b/dist/helpers/filesystem.web.js
+new file mode 100644
+index 0000000000000000000000000000000000000000..08d888791c725cefe4ad4f7be47eebd5d791693d
+--- /dev/null
++++ b/dist/helpers/filesystem.web.js
+@@ -0,0 +1,23 @@
++"use strict";
++Object.defineProperty(exports, "__esModule", { value: true });
++exports.outputFileSync = exports.outputFile = exports.mkdirRecursiveSync = exports.mkdirRecursive = exports.parsePath = exports.fsWriteFile = exports.fsMkdir = void 0;
++exports.fsMkdir = () => Promise.resolve();
++exports.fsWriteFile = () => Promise.resolve();
++
++exports.parsePath = () => {};
++async function mkdirRecursive(filePath) {
++
++}
++exports.mkdirRecursive = mkdirRecursive;
++function mkdirRecursiveSync(filePath) {
++
++}
++exports.mkdirRecursiveSync = mkdirRecursiveSync;
++async function outputFile(filePath, fileContent) {
++
++}
++exports.outputFile = outputFile;
++function outputFileSync(filePath, fileContent) {
++
++}
++exports.outputFileSync = outputFileSync;
+diff --git a/dist/helpers/loadResolversFromGlob.native.js b/dist/helpers/loadResolversFromGlob.native.js
+new file mode 100644
+index 0000000000000000000000000000000000000000..7b1eb679b0c373a6322abbb2fe25088030498290
+--- /dev/null
++++ b/dist/helpers/loadResolversFromGlob.native.js
+@@ -0,0 +1,10 @@
++"use strict";
++Object.defineProperty(exports, "__esModule", { value: true });
++exports.loadResolversFromGlob = exports.findFileNamesFromGlob = void 0;
++function findFileNamesFromGlob(globString) {
++    return
++}
++exports.findFileNamesFromGlob = findFileNamesFromGlob;
++function loadResolversFromGlob(globString) {
++}
++exports.loadResolversFromGlob = loadResolversFromGlob;
+diff --git a/dist/helpers/loadResolversFromGlob.web.js b/dist/helpers/loadResolversFromGlob.web.js
+new file mode 100644
+index 0000000000000000000000000000000000000000..7b1eb679b0c373a6322abbb2fe25088030498290
+--- /dev/null
++++ b/dist/helpers/loadResolversFromGlob.web.js
+@@ -0,0 +1,10 @@
++"use strict";
++Object.defineProperty(exports, "__esModule", { value: true });
++exports.loadResolversFromGlob = exports.findFileNamesFromGlob = void 0;
++function findFileNamesFromGlob(globString) {
++    return
++}
++exports.findFileNamesFromGlob = findFileNamesFromGlob;
++function loadResolversFromGlob(globString) {
++}
++exports.loadResolversFromGlob = loadResolversFromGlob;

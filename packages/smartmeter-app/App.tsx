@@ -11,6 +11,7 @@ import { Context } from '@joshbalfour/smartmeter-graphql-schema/src/types'
 
 const getClient = async () => {
   const schema = await getSchema()
+  console.log(schema)
   const client = new ApolloClient({
     ssrMode: true,
     link: new SchemaLink({ schema, context: async () => {

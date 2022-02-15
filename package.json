@@ -4,5 +4,8 @@
   "private": true,
   "workspaces": [
     "packages/*"
-  ]
+  ],
+  "resolutions": {
+    "type-graphql@1.1.1": "patch:type-graphql@npm:1.1.1#.yarn/patches/type-graphql-npm-1.1.1-82668f6e3f"
+  }
 }

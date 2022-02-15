@@ -15,6 +15,6 @@
     "class-validator": "^0.13.2",
     "graphql": "^15.3.0",
     "reflect-metadata": "^0.1.13",
-    "type-graphql": "^1.1.1"
+    "type-graphql": "patch:type-graphql@npm:1.1.1#../../.yarn/patches/type-graphql-npm-1.1.1-82668f6e3f"
   }
 }
