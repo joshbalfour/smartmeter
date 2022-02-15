@@ -11,20 +11,21 @@ import { Context } from '@joshbalfour/smartmeter-graphql-schema/src/types'
 
 const getClient = async () => {
   const schema = await getSchema()
-  const context: Context = {
-    token: await AsyncStorage.getItem('smartmeter:token') || undefined,
-  }
-
   const client = new ApolloClient({
     ssrMode: true,
-    link: new SchemaLink({ schema, context }),
+    link: new SchemaLink({ schema, context: async () => {
+        const context: Context = {
+          token: await AsyncStorage.getItem('smartmeter:token') || undefined,
+        }
+
+        return context
+      }
+    }),
     cache: new InMemoryCache()
   })
 
   return client
 }
-
-console.log('hi')
 
 const useClient = () => {
   const [client, setClient] = useState<ApolloClient<any>>()

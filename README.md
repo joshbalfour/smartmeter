@@ -1,4 +1,4 @@
-# Smarty Energy - View your smart meter on your phone
+# [Smarty Energy](https://smarty.energy) - View your smart meter on your phone
 
 <img src="images/logo.png" width="128" height="128">
 
@@ -23,6 +23,7 @@ Everything's in TypeScript, this is a yarn berry monorepo, stuff is located in [
 
 ## Todo
 - [x] Set up the base project
+- [x] Branding/Name/Visual Identity
 - [ ] Wireframe the app
 - [ ] Ensure all required data is accessible via the client library and schema
 - [ ] Login / View Profile / Logout flow
@@ -30,8 +31,11 @@ Everything's in TypeScript, this is a yarn berry monorepo, stuff is located in [
 - [ ] View historical data
 - [ ] Signup flow
 - [ ] Associate IHD with app flow
+
+## Future Roadmap
 - [ ] Hildebrande smart meter upsell flow
-- [ ] Branding/Name/Visual Identity
+  - waitlist
+  - activation/setup
 
 ## Stretch goal/Maybes
 - [ ] Native widgets for android/iOS (would require ejection from expo)
