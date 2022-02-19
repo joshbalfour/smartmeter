@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react'
 import { ApolloClient, InMemoryCache } from '@apollo/client'
 import { SchemaLink } from '@apollo/client/link/schema'
-import AsyncStorage from '@react-native-async-storage/async-storage'
 
 import { getSchema } from '@joshbalfour/smartmeter-graphql-schema'
 import { Context } from '@joshbalfour/smartmeter-graphql-schema/src/types'
+import { getAuthToken } from './hooks/useAuthToken'
 
 const getClient = async () => {
   const schema = await getSchema()
@@ -12,7 +12,7 @@ const getClient = async () => {
     ssrMode: true,
     link: new SchemaLink({ schema, context: async () => {
         const context: Context = {
-          token: await AsyncStorage.getItem('smartmeter:token') || undefined,
+          token: await getAuthToken(),
         }
 
         return context

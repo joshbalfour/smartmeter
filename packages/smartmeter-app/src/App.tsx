@@ -11,9 +11,11 @@ import { Loading } from './routes/loading'
 import { Home } from './routes/home'
 import { offBlack, offWhite } from './colors'
 import { Signup } from './routes/Signup'
+import { Dashboard } from './routes/dashboard'
 
 export default function App() {
   const client = useClient()
+
   let [fontsLoaded] = useFonts({
     Poppins_700Bold,
     Poppins_600SemiBold,
@@ -35,6 +37,7 @@ export default function App() {
             <Route path="/">
               <Route index element={<Home />} />
               <Route path="signup" element={<Signup />} />
+              <Route path="dashboard" element={<Dashboard />} />
             </Route>
           </Routes>
         </Router>

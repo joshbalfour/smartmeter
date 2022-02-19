@@ -1,8 +1,8 @@
 import { glowmarktRequest } from './glowmarkt-request'
 
-import { AuthResponse, AuthResponseDetailed, ReadingQuery, Readings, Resource, ResourceDetails, VirtualEntity } from './types'
+import { AuthResponse, AuthResponseDetailed, ReadingQuery, Readings, RegisterUserArgs, RegisterUserResponse, Resource, ResourceDetails, VirtualEntity } from './types'
 
-export const client = (appId: string = 'b0f1b774-a586-4f72-9edd-27ead8aa7a8d', baseUrl: string = 'https://api.glowmarkt.com/api/v0-1/') => {
+export const client = (appId: string = 'b0f1b774-a586-4f72-9edd-27ead8aa7a8d', directoryId: string = '951cffa7-863f-4ae7-8f7e-ed682e690f91', baseUrl: string = 'https://api.glowmarkt.com/api/v0-1/') => {
   const request = glowmarktRequest(appId, baseUrl)
 
   const authenticate = (username: string, password: string): Promise<AuthResponseDetailed> => (
@@ -52,6 +52,17 @@ export const client = (appId: string = 'b0f1b774-a586-4f72-9edd-27ead8aa7a8d', b
     })
   )
 
+  const registerUser = (userData: Omit<Omit<RegisterUserArgs, 'applicationId'>, 'directoryId'>): Promise<RegisterUserResponse> => (
+    request.post<RegisterUserResponse>({
+      endpoint: 'register',
+      body: {
+        ...userData,
+        applicationId: appId,
+        directoryId,
+      }
+    })
+  )
+
   return {
     authenticate,
     getCurrentAuthentication,
@@ -59,5 +70,6 @@ export const client = (appId: string = 'b0f1b774-a586-4f72-9edd-27ead8aa7a8d', b
     getVirtualEntityWithResourceDetails,
     getCurrentReadings,
     getReadings,
+    registerUser,
   }
 }

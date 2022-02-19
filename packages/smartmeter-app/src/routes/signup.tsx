@@ -1,10 +1,14 @@
 import React from 'react'
+import { useNavigate } from 'react-router'
 import styled from 'styled-components/native'
+
 import { Button } from '../components/Button'
 import { TextInput } from '../components/Input'
 import { Logo } from '../components/Logo'
 import { Tab } from '../components/Tab'
 import { HugeBold, TextSmall } from '../components/Text'
+import { useLogin } from '../hooks/useLogin'
+import { useRegister } from '../hooks/useRegister'
 
 const Header = styled.View`
   flex-direction: column;
@@ -45,7 +49,15 @@ const Footer = styled.View`
 `
 
 export const Signup = () => {
+  const { login, loading } = useLogin()
+  const { register, loading: signupLoading } = useRegister()
+  const navigate = useNavigate()
+
   const [isSignup, setIsSignup] = React.useState(false)
+  const [email, setEmail] = React.useState('')
+  const [password, setPassword] = React.useState('')
+  const [password2, setPassword2] = React.useState('')
+
   return (
     <Container>
       <Header>
@@ -62,18 +74,28 @@ export const Signup = () => {
         </Tabs>
         {isSignup ? (
           <>
-            <TextInput name="email" placeholder="Enter your email" keyboardType="email-address" autoCorrect={false} autoComplete="email" />
-            <TextInput name="password" placeholder="Create a Password" secureTextEntry={true} autoCorrect={false} autoComplete="password-new" style={{ marginTop: 25 }} />
-            <TextInput name="confirm-password" placeholder="Confirm Password" secureTextEntry={true} autoCorrect={false} autoComplete="password-new" style={{ marginTop: 25 }} />
+            <TextInput name="email" placeholder="Enter your email" keyboardType="email-address" autoCorrect={false} autoComplete="email" value={email} onChangeText={setEmail} />
+            <TextInput name="password" placeholder="Create a Password" secureTextEntry={true} autoCorrect={false} autoComplete="password-new" value={password} onChangeText={setPassword} style={{ marginTop: 25 }} />
+            <TextInput name="confirm-password" placeholder="Confirm Password" secureTextEntry={true} autoCorrect={false} autoComplete="password-new" value={password2} onChangeText={setPassword2} style={{ marginTop: 25 }} />
           </>
         ) : (
           <>
-            <TextInput name="email" placeholder="Enter your email" keyboardType="email-address" autoCorrect={false} autoComplete="email" />
-            <TextInput name="password" placeholder="Enter your Password" secureTextEntry={true} autoCorrect={false} autoComplete="password" style={{ marginTop: 25 }} />
+            <TextInput name="email" placeholder="Enter your email" keyboardType="email-address" autoCorrect={false} autoComplete="email" value={email} onChangeText={setEmail} />
+            <TextInput name="password" placeholder="Enter your Password" secureTextEntry={true} autoCorrect={false} autoComplete="password" style={{ marginTop: 25 }} value={password} onChangeText={setPassword} />
           </>
         )}
         <Footer>
-          <Button text={isSignup ? "Create Account" : "Login"} />
+          <Button text={isSignup ? "Create Account" : "Login"} onClick={() => {
+            if (isSignup) {
+              register({ email, password }).then(() => {
+                navigate('/dashboard')
+              })
+            } else {
+              login({ email, password }).then(() => {
+                navigate('/dashboard')
+              })
+            }
+          }} />
         </Footer>
       </Body>
     </Container>

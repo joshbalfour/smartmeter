@@ -1,11 +1,14 @@
-import React from 'react'
-import { Outlet } from 'react-router-native'
+import React, { useEffect } from 'react'
+import { useNavigate } from 'react-router'
 import styled from 'styled-components/native'
 
 import { Button } from '../components/Button'
 import { Logo } from '../components/Logo'
 import { HugeBold, TextSmall } from '../components/Text'
 import { TextCarousel } from '../components/TextCarousel'
+import { useAuthenticatedUser } from '../hooks/useAuthenticatedUser'
+import { useRefreshToken } from '../hooks/useRefreshToken'
+import { Loading } from './loading'
 
 const Header = styled.View`
   flex-direction: column;
@@ -41,6 +44,18 @@ const Container = styled.View`
 
 export const Home = () => {
   const [index, setIndex] = React.useState(0)
+  const { loading, user } = useAuthenticatedUser()
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    if (user) {
+      navigate('/dashboard')
+    }
+  }, [user])
+
+  if (loading) {
+    return <Loading />
+  }
 
   return (
     <Container>

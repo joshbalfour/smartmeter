@@ -2236,6 +2236,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@react-native-community/async-storage@npm:^1.12.1":
+  version: 1.12.1
+  resolution: "@react-native-community/async-storage@npm:1.12.1"
+  dependencies:
+    deep-assign: ^3.0.0
+  peerDependencies:
+    react: ^16.8
+    react-native: ">=0.59"
+  checksum: 68b519eb9fc50899257878440fd49a500d4b35c3899311c56c672e779df6516f0760204f6c8edcb3e83398c61a775822996aac6974be4b55a04ad30448d8662d
+  languageName: node
+  linkType: hard
+
 "@react-native-community/cli-debugger-ui@npm:^5.0.1":
   version: 5.0.1
   resolution: "@react-native-community/cli-debugger-ui@npm:5.0.1"
@@ -2972,13 +2984,6 @@ __metadata:
   version: 4.2.2
   resolution: "@xtuc/long@npm:4.2.2"
   checksum: 8ed0d477ce3bc9c6fe2bf6a6a2cc316bb9c4127c5a7827bae947fa8ec34c7092395c5a283cc300c05b5fa01cbbfa1f938f410a7bf75db7c7846fea41949989ec
-  languageName: node
-  linkType: hard
-
-"@yarnpkg/lockfile@npm:^1.1.0":
-  version: 1.1.0
-  resolution: "@yarnpkg/lockfile@npm:1.1.0"
-  checksum: 05b881b4866a3546861fee756e6d3812776ea47fa6eb7098f983d6d0eefa02e12b66c3fff931574120f196286a7ad4879ce02743c8bb2be36c6a576c7852083a
   languageName: node
   linkType: hard
 
@@ -5234,6 +5239,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"deep-assign@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "deep-assign@npm:3.0.0"
+  dependencies:
+    is-obj: ^1.0.0
+  checksum: 9041ccc72ae1980f014d4b745d6135d8f0e71d60ac433397550789c27e6b4d14bc0de2af69777e09f97e1d0da3007a8d78de36f7bf9df931c9968b68fc9546ab
+  languageName: node
+  linkType: hard
+
 "deep-extend@npm:^0.6.0":
   version: 0.6.0
   resolution: "deep-extend@npm:0.6.0"
@@ -6466,7 +6480,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fs-extra@npm:^7.0.0, fs-extra@npm:^7.0.1":
+"fs-extra@npm:^7.0.0":
   version: 7.0.1
   resolution: "fs-extra@npm:7.0.1"
   dependencies:
@@ -7633,6 +7647,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"is-obj@npm:^1.0.0":
+  version: 1.0.1
+  resolution: "is-obj@npm:1.0.1"
+  checksum: 3ccf0efdea12951e0b9c784e2b00e77e87b2f8bd30b42a498548a8afcc11b3287342a2030c308e473e93a7a19c9ea7854c99a8832a476591c727df2a9c79796c
+  languageName: node
+  linkType: hard
+
 "is-obj@npm:^2.0.0":
   version: 2.0.0
   resolution: "is-obj@npm:2.0.0"
@@ -8138,15 +8159,6 @@ __metadata:
   version: 6.0.3
   resolution: "kind-of@npm:6.0.3"
   checksum: 3ab01e7b1d440b22fe4c31f23d8d38b4d9b91d9f291df683476576493d5dfd2e03848a8b05813dd0c3f0e835bc63f433007ddeceb71f05cb25c45ae1b19c6d3b
-  languageName: node
-  linkType: hard
-
-"klaw-sync@npm:^6.0.0":
-  version: 6.0.0
-  resolution: "klaw-sync@npm:6.0.0"
-  dependencies:
-    graceful-fs: ^4.1.11
-  checksum: 0da397f8961313c3ef8f79fb63af9002cde5a8fb2aeb1a37351feff0dd6006129c790400c3f5c3b4e757bedcabb13d21ec0a5eaef5a593d59515d4f2c291e475
   languageName: node
   linkType: hard
 
@@ -9661,7 +9673,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"open@npm:^7.0.2, open@npm:^7.4.2":
+"open@npm:^7.0.2":
   version: 7.4.2
   resolution: "open@npm:7.4.2"
   dependencies:
@@ -9721,7 +9733,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"os-tmpdir@npm:^1.0.0, os-tmpdir@npm:~1.0.2":
+"os-tmpdir@npm:^1.0.0":
   version: 1.0.2
   resolution: "os-tmpdir@npm:1.0.2"
   checksum: 5666560f7b9f10182548bf7013883265be33620b1c1b4a4d405c25be2636f970c5488ff3e6c48de75b55d02bde037249fe5dbfbb4c0fb7714953d56aed062e6d
@@ -9894,29 +9906,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"patch-package@npm:^6.4.7":
-  version: 6.4.7
-  resolution: "patch-package@npm:6.4.7"
-  dependencies:
-    "@yarnpkg/lockfile": ^1.1.0
-    chalk: ^2.4.2
-    cross-spawn: ^6.0.5
-    find-yarn-workspace-root: ^2.0.0
-    fs-extra: ^7.0.1
-    is-ci: ^2.0.0
-    klaw-sync: ^6.0.0
-    minimist: ^1.2.0
-    open: ^7.4.2
-    rimraf: ^2.6.3
-    semver: ^5.6.0
-    slash: ^2.0.0
-    tmp: ^0.0.33
-  bin:
-    patch-package: index.js
-  checksum: f36d5324da3b69ee635e7cd2c68f4d3dd89dc91d60ffdaad3b602fd953277f4da901c91033683bf6ff31c14799bc049849af3a389455c25d0435fe9cfb0d4088
-  languageName: node
-  linkType: hard
-
 "path-browserify@npm:0.0.1":
   version: 0.0.1
   resolution: "path-browserify@npm:0.0.1"
@@ -10056,18 +10045,6 @@ __metadata:
   version: 4.0.1
   resolution: "pify@npm:4.0.1"
   checksum: 9c4e34278cb09987685fa5ef81499c82546c033713518f6441778fbec623fc708777fe8ac633097c72d88470d5963094076c7305cafc7ad340aae27cfacd856b
-  languageName: node
-  linkType: hard
-
-"pinar@npm:^0.12.1":
-  version: 0.12.1
-  resolution: "pinar@npm:0.12.1"
-  dependencies:
-    patch-package: ^6.4.7
-  peerDependencies:
-    react: ">=16.0.0"
-    react-native: ">=0.49.0"
-  checksum: b0fe798208f577379f95e7321a6fbae97731d5727d3f451755aaa6e68ea1bd098f96ac492b0dde70eb492ef707910fe5f4fdb73d5aded956a0b2b3f416dee3c9
   languageName: node
   linkType: hard
 
@@ -11853,13 +11830,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"slash@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "slash@npm:2.0.0"
-  checksum: 512d4350735375bd11647233cb0e2f93beca6f53441015eea241fe784d8068281c3987fbaa93e7ef1c38df68d9c60013045c92837423c69115297d6169aa85e6
-  languageName: node
-  linkType: hard
-
 "slash@npm:^3.0.0":
   version: 3.0.0
   resolution: "slash@npm:3.0.0"
@@ -11901,6 +11871,7 @@ __metadata:
     "@expo-google-fonts/poppins": ^0.2.2
     "@joshbalfour/smartmeter-graphql-schema": "workspace:^"
     "@react-native-async-storage/async-storage": ~1.15.0
+    "@react-native-community/async-storage": ^1.12.1
     "@types/react": ~17.0.21
     "@types/react-native": ~0.64.12
     babel-plugin-transform-typescript-metadata: ^0.3.2
@@ -11910,7 +11881,6 @@ __metadata:
     expo-yarn-workspaces: ^1.7.0
     graphql: ^15.3.0
     path: ^0.12.7
-    pinar: ^0.12.1
     react: 17.0.1
     react-dom: 17.0.1
     react-native: 0.64.3
@@ -12572,15 +12542,6 @@ __metadata:
   version: 0.3.0
   resolution: "timsort@npm:0.3.0"
   checksum: 1a66cb897dacabd7dd7c91b7e2301498ca9e224de2edb9e42d19f5b17c4b6dc62a8d4cbc64f28be82aaf1541cb5a78ab49aa818f42a2989ebe049a64af731e2a
-  languageName: node
-  linkType: hard
-
-"tmp@npm:^0.0.33":
-  version: 0.0.33
-  resolution: "tmp@npm:0.0.33"
-  dependencies:
-    os-tmpdir: ~1.0.2
-  checksum: 902d7aceb74453ea02abbf58c203f4a8fc1cead89b60b31e354f74ed5b3fb09ea817f94fb310f884a5d16987dd9fa5a735412a7c2dd088dd3d415aa819ae3a28
   languageName: node
   linkType: hard
 

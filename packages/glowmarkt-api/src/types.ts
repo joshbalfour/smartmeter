@@ -23,6 +23,29 @@ export type AuthResponseDetailed = {
   userGroups: string[]
 }
 
+export type RegisterUserArgs = {
+  name: string
+  username: string
+  email: string
+  password: string
+  applicationId: string
+  directoryId: string
+}
+
+export type UserApplication = {
+  applicationId: string
+  active: boolean
+  accountId: string
+}
+
+export type RegisterUserResponse = {
+  userId: string
+  status: string
+  active: boolean
+  applications: UserApplication[]
+  createdAt: string
+  updatedAt: string
+}
 
 export type Resource = {
   resourceId: string
