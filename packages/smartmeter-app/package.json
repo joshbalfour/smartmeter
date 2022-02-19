@@ -13,15 +13,21 @@
   "postinstall": "expo-yarn-workspaces",
   "dependencies": {
     "@apollo/client": "^3.5.8",
+    "@expo-google-fonts/poppins": "^0.2.2",
     "@joshbalfour/smartmeter-graphql-schema": "workspace:^",
     "@react-native-async-storage/async-storage": "~1.15.0",
     "expo": "~44.0.0",
+    "expo-font": "^10.0.5",
     "expo-status-bar": "~1.2.0",
     "graphql": "^15.3.0",
+    "pinar": "^0.12.1",
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "react-native": "0.64.3",
-    "react-native-web": "0.17.1"
+    "react-native-web": "0.17.1",
+    "react-router-dom": "^6.2.1",
+    "react-router-native": "^6.2.1",
+    "styled-components": "^5.3.3"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",

@@ -1,0 +1,7 @@
+export const offBlack = '#14142B'
+export const offWhite = '#FCFCFC'
+export const line = '#D9DBE9'
+export const primary = '#A996FF'
+export const primaryDark = '#4700AB'
+export const primaryLight = '#BFBEFC'
+export const body = '#4E4B66'
