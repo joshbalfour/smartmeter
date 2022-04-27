@@ -2084,8 +2084,10 @@ __metadata:
   resolution: "@joshbalfour/smartmeter-graphql-schema@workspace:packages/smartmeter-graphql-schema"
   dependencies:
     "@joshbalfour/glowmarkt-api": "workspace:^"
+    "@types/graphql-iso-date": ^3.4.0
     class-validator: ^0.13.2
     graphql: ^15.3.0
+    graphql-iso-date: ^3.6.1
     reflect-metadata: ^0.1.13
     ts-node-dev: ^1.1.8
     type-graphql: "patch:type-graphql@npm:1.1.1#../../.yarn/patches/type-graphql-npm-1.1.1-82668f6e3f"
@@ -2524,6 +2526,15 @@ __metadata:
   dependencies:
     "@types/node": "*"
   checksum: d076bb61f45d0fc42dee496ef8b1c2f8742e15d5e47e90e20d0243386e426c04d4efd408a48875ab432f7960b4ce3414db20ed0fbbfc7bcc89d84e574f6e045a
+  languageName: node
+  linkType: hard
+
+"@types/graphql-iso-date@npm:^3.4.0":
+  version: 3.4.0
+  resolution: "@types/graphql-iso-date@npm:3.4.0"
+  dependencies:
+    graphql: ^15.1.0
+  checksum: 97ec12d499bcdfae4b76fb02540b56cfa0158f5df21c137389c399bb95df7929cd4fc3f34d1619ee4a2f5cea2455273f1dd6d1172a973716b2283e67ac046610
   languageName: node
   linkType: hard
 
@@ -6786,6 +6797,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"graphql-iso-date@npm:^3.6.1":
+  version: 3.6.1
+  resolution: "graphql-iso-date@npm:3.6.1"
+  peerDependencies:
+    graphql: ^0.5.0 || ^0.6.0 || ^0.7.0 || ^0.8.0-b || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0
+  checksum: 829d1a26976c24525c098f29b58930bd992c5afb1db9006a0e7ec2b28299b0a911972257f4bcfff0709dc79202db359ab20bafc025db2651d54edf852b9829c6
+  languageName: node
+  linkType: hard
+
 "graphql-query-complexity@npm:^0.7.0":
   version: 0.7.2
   resolution: "graphql-query-complexity@npm:0.7.2"
@@ -6819,7 +6839,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"graphql@npm:^15.3.0":
+"graphql@npm:^15.1.0, graphql@npm:^15.3.0":
   version: 15.8.0
   resolution: "graphql@npm:15.8.0"
   checksum: 423325271db8858428641b9aca01699283d1fe5b40ef6d4ac622569ecca927019fce8196208b91dd1d8eb8114f00263fe661d241d0eb40c10e5bfd650f86ec5e

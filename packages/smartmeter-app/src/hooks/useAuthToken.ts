@@ -7,7 +7,7 @@ const tokenKey = `${namespace}:token`
 const emailKey = `${namespace}:email`
 const passwordKey = `${namespace}:password`
 
-export const getAuthToken = async () => await AsyncStorage.getItem(tokenKey) || undefined
+export const getAuthToken = async () => (await AsyncStorage.getItem(tokenKey)) || undefined
 export const setAuthToken = async (token: string) => await AsyncStorage.setItem(tokenKey, token)
 
 export const setCredentials = async (email: string, password: string) => {

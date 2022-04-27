@@ -85,16 +85,13 @@ export const Signup = () => {
           </>
         )}
         <Footer>
-          <Button text={isSignup ? "Create Account" : "Login"} onClick={() => {
+          <Button text={isSignup ? "Create Account" : "Login"} onClick={async () => {
             if (isSignup) {
-              register({ email, password }).then(() => {
-                navigate('/dashboard')
-              })
+              await register({ email, password })
             } else {
-              login({ email, password }).then(() => {
-                navigate('/dashboard')
-              })
+              await login({ email, password })
             }
+            navigate('/dashboard')
           }} />
         </Footer>
       </Body>

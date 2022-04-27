@@ -11,13 +11,16 @@ export const glowmarktRequest = (appId: string = 'b0f1b774-a586-4f72-9edd-27ead8
     token?: string,
     search?: any,
   }) => {
-    const resp = await fetch(`${baseUrl}/${endpoint}${options.search ? queryString.stringify(options.search) : ''}`, {
+    const uri = `${baseUrl}/${endpoint}${options.search ? '?'+queryString.stringify(options.search) : ''}`
+    const resp = await fetch(uri, {
       method: options.method || 'GET',
       body: options.body ? JSON.stringify(options.body) : undefined,
       headers: {
         'Content-Type': 'application/json',
-        'applicationId': appId,
+        applicationId: appId,
+        "X-GLOW-Version": "0",
         ...options.headers,
+        ...(options.token ? { token: options.token } : {}),
       },
     })
 
@@ -30,6 +33,7 @@ export const glowmarktRequest = (appId: string = 'b0f1b774-a586-4f72-9edd-27ead8
 
     if (!resp.ok) {
       if (isHildebrandError(json)) {
+        console.error(json)
         throw new Error(`Error ${resp.status} from ${endpoint}: ${json.error}`)
       }
       throw new Error(`Error ${resp.status} from ${endpoint}: ${JSON.stringify(json)}`)

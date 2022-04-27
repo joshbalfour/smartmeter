@@ -1,8 +1,9 @@
 import { glowmarktRequest } from './glowmarkt-request'
 
-import { AuthResponse, AuthResponseDetailed, ReadingQuery, Readings, RegisterUserArgs, RegisterUserResponse, Resource, ResourceDetails, VirtualEntity } from './types'
+import { AuthResponse, AuthResponseDetailed, ReadingQuery, Readings, RegisterUserArgs, RegisterUserResponse, Resource, ResourceDetails, VirtualEntity, VirtualEntityType } from './types'
+import { dateToGlowmarktString } from './utils'
 
-export const client = (appId: string = 'b0f1b774-a586-4f72-9edd-27ead8aa7a8d', directoryId: string = '951cffa7-863f-4ae7-8f7e-ed682e690f91', baseUrl: string = 'https://api.glowmarkt.com/api/v0-1/') => {
+export const client = (appId: string = 'b0f1b774-a586-4f72-9edd-27ead8aa7a8d', directoryId: string = '951cffa7-863f-4ae7-8f7e-ed682e690f91', baseUrl: string = 'https://api.glowmarkt.com/api/v0-1') => {
   const request = glowmarktRequest(appId, baseUrl)
 
   const authenticate = (username: string, password: string): Promise<AuthResponseDetailed> => (
@@ -36,6 +37,12 @@ export const client = (appId: string = 'b0f1b774-a586-4f72-9edd-27ead8aa7a8d', d
     })
   )
 
+  const getResource = (token: string, resourceId: string): Promise<ResourceDetails> => (
+    request.get<ResourceDetails>({
+      endpoint: `resource/${resourceId}`,
+      token,
+    })
+  )
 
   const getCurrentReadings = (token: string, resourceId: string): Promise<Readings> => (
     request.get<Readings>({
@@ -44,10 +51,25 @@ export const client = (appId: string = 'b0f1b774-a586-4f72-9edd-27ead8aa7a8d', d
     })
   )
 
-  const getReadings = (token: string, resourceId: string, query: ReadingQuery): Promise<Readings> => (
-    request.get<Readings>({
-      endpoint: `resource/${resourceId}/readings`,
-      search: { query },
+  const getReadings = (token: string, resourceId: string, query: ReadingQuery): Promise<Readings> => {
+    const search = {
+      ...query,
+      from: dateToGlowmarktString(query.from),
+      to: dateToGlowmarktString(query.to),
+    }
+
+    return (
+      request.get<Readings>({
+        endpoint: `resource/${resourceId}/readings`,
+        search,
+        token,
+      })
+    )
+  }
+
+  const getVirtualEntityTypes = (token: string): Promise<VirtualEntityType[]> => (
+    request.get<VirtualEntityType[]>({
+      endpoint: 'vetype',
       token,
     })
   )
@@ -68,6 +90,8 @@ export const client = (appId: string = 'b0f1b774-a586-4f72-9edd-27ead8aa7a8d', d
     getCurrentAuthentication,
     getVirtualEntities,
     getVirtualEntityWithResourceDetails,
+    getVirtualEntityTypes,
+    getResource,
     getCurrentReadings,
     getReadings,
     registerUser,

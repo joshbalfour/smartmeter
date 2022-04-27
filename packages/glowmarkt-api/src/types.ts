@@ -64,9 +64,17 @@ export type VirtualEntity<T> = {
   resources: T[]
 }
 
+export enum Classifier {
+  "electricity.consumption" = "electricity.consumption",
+  "electricity.consumption.cost" = "electricity.consumption.cost",
+  "gas.consumption" = "gas.consumption",
+  "gas.consumption.cost" = "gas.consumption.cost",
+}
 
-export type Classifier = "electricity.consumption" | "electricity.consumption.cost" | "gas.consumption" | "gas.consumption.cost"
-export type BaseUnit = "pence" | "kWh"
+export enum BaseUnit {
+  "pence" = "pence",
+  "kWh" = "kWh",
+}
 
 export type ResourceDetails = {
   resourceId: string
@@ -76,16 +84,39 @@ export type ResourceDetails = {
   description: string
   ownerId: string
   baseUnit: BaseUnit
+  dataSourceType: string
   active: boolean
+  label: string
 }
 
-export type Period = 'PT1M' | 'PT30M' | 'PT1H' | 'P1D' | 'P1W' | 'P1M' | 'P1Y'
+export enum ReadingQueryPeriod {
+  'PT1M' = 'PT1M',
+  'PT30M' = 'PT30M',
+  'PT1H' = 'PT1H',
+  'P1D' = 'P1D',
+  'P1W' = 'P1W',
+  'P1M' = 'P1M',
+  'P1Y' = 'P1Y',
+}
+
+export enum ReadingQueryFunction {
+  avg = 'avg',
+  sum = 'sum'
+}
 
 export type ReadingQuery = {
-  from: string
-  to: string
-  period: Period
-  function: 'sum' | 'avg'
+  from: Date
+  to: Date
+  period: ReadingQueryPeriod
+  function: ReadingQueryFunction
+  /*  All the data we store is saved in UTC (Coordinated Universal Time), regardless
+      of the timezone it was collected in. For the API to correctly return the data for
+      the period you request you must supply the offset in minutes between the
+      timezone you require and UTC. As an example if you wish to request data in
+      BST (British Summer Time, UTC+1) you should specify an offset of -60. EST (East
+      Coast N America) would be +300.
+   */
+  offset?: string
 }
 
 export type Readings = {
@@ -102,4 +133,16 @@ export type Readings = {
 
 export const isHildebrandError = (e: any): e is HildebrandError => {
   return e.error
+}
+
+export type VirtualEntityType = {
+  veTypeId: string
+  name: string
+  description: string
+  applicationId: string
+  active: boolean
+  resources: {
+    resourceTypeId: string
+    required: boolean
+  }[]
 }
