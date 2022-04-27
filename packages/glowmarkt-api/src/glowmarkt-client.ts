@@ -1,6 +1,6 @@
 import { glowmarktRequest } from './glowmarkt-request'
 
-import { AuthResponse, AuthResponseDetailed, ReadingQuery, Readings, RegisterUserArgs, RegisterUserResponse, Resource, ResourceDetails, VirtualEntity, VirtualEntityType } from './types'
+import { AuthResponse, AuthResponseDetailed, ReadingQuery, Readings, RegisterUserArgs, RegisterUserResponse, Resource, ResourceDetails, VirtualEntity, VirtualEntityAttributes, VirtualEntityType } from './types'
 import { dateToGlowmarktString } from './utils'
 
 export const client = (appId: string = 'b0f1b774-a586-4f72-9edd-27ead8aa7a8d', directoryId: string = '951cffa7-863f-4ae7-8f7e-ed682e690f91', baseUrl: string = 'https://api.glowmarkt.com/api/v0-1') => {
@@ -33,6 +33,13 @@ export const client = (appId: string = 'b0f1b774-a586-4f72-9edd-27ead8aa7a8d', d
   const getVirtualEntityWithResourceDetails = (token: string, veId: string): Promise<VirtualEntity<ResourceDetails>> => (
     request.get<VirtualEntity<ResourceDetails>>({
       endpoint: `virtualentity/${veId}/resources`,
+      token,
+    })
+  )
+
+  const getVirtualEntityAttributes = (token: string, veId: string): Promise<VirtualEntityAttributes> => (
+    request.get<VirtualEntityAttributes>({
+      endpoint: `virtualentity/${veId}/attribute`,
       token,
     })
   )
@@ -95,5 +102,6 @@ export const client = (appId: string = 'b0f1b774-a586-4f72-9edd-27ead8aa7a8d', d
     getCurrentReadings,
     getReadings,
     registerUser,
+    getVirtualEntityAttributes,
   }
 }

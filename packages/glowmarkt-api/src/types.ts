@@ -145,4 +145,10 @@ export type VirtualEntityType = {
     resourceTypeId: string
     required: boolean
   }[]
+  attributes: VirtualEntityAttributes['attribute']
+}
+
+export type VirtualEntityAttributes = {
+  veId: string
+  attribute: Record<string, Array<string> | Record<string, string | number>>
 }
